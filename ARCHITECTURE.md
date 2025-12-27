@@ -1,7 +1,7 @@
 # Darija Translator Application Architecture
 
 ## System Overview
-A modern web application for translating English text and audio to Moroccan Darija (Darija) with JWT-based authentication.
+A comprehensive translation platform for translating English text and audio to Moroccan Darija (Darija) with JWT-based authentication. The system includes a Spring Boot backend, React web application, and Chrome browser extension for seamless translation across different contexts.
 
 ## Architecture Description for AI Design
 
@@ -24,6 +24,21 @@ A modern web application for translating English text and audio to Moroccan Dari
 - CSS modules for component-specific styles
 - Responsive design with gradient backgrounds
 - Modern UI with smooth animations
+
+### 3. Chrome Extension Architecture
+
+**Main Components:**
+- **Manifest V3**: Extension configuration and permissions
+- **Background Service Worker**: Handles API communication and authentication
+- **Content Script**: Injects translation functionality into web pages
+- **Side Panel**: Provides translation interface within browser
+- **Popup Interface**: Quick access to extension features
+
+**Functionality:**
+- Text selection and translation on web pages
+- Side panel for detailed translation interface
+- Integration with backend API for authenticated requests
+- Local storage for user preferences and tokens
 
 ### 2. Backend Architecture (Spring Boot)
 
@@ -88,8 +103,12 @@ A modern web application for translating English text and audio to Moroccan Dari
 
 ```
 User → React Frontend → Spring Boot Backend → Gemini API
-     ← Auth Context ← JWT Token ← Database
-     ← Translation Results ← Translation Service
+      ← Auth Context ← JWT Token ← Database
+      ← Translation Results ← Translation Service
+
+User → Chrome Extension → Spring Boot Backend → Gemini API
+      ← Local Storage ← JWT Token ← Database
+      ← Translation Results ← Translation Service
 ```
 
 ### 6. Security Architecture
@@ -124,6 +143,12 @@ User → React Frontend → Spring Boot Backend → Gemini API
 - JWT for authentication
 - RestTemplate for external API calls
 - Maven for dependency management
+
+**Browser Extension:**
+- Chrome Extension Manifest V3
+- Service Workers for background processing
+- Content Scripts for DOM manipulation
+- Side Panel API for UI integration
 
 **External Services:**
 - Google Gemini API for translation

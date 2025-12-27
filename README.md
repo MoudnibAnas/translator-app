@@ -1,10 +1,10 @@
 # Tarjmaan - Moroccan Darija Translator
 
 ![Project Logo](https://img.shields.io/badge/Tarjmaan-English%20to%20Darija-blue)
-![Tech Stack](https://img.shields.io/badge/Tech-Spring%20Boot%20%7C%20React%20%7C%20Gemini%20AI-green)
+![Tech Stack](https://img.shields.io/badge/Tech-Spring%20Boot%20%7C%20React%20%7C%20Chrome%20Extension%20%7C%20Gemini%20AI-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-**Tarjmaan** is a modern web application that translates English text and audio to Moroccan Darija (الدارجة المغربية) using Google's Gemini AI. This project combines a robust Spring Boot backend with a React frontend to provide seamless translation services.
+**Tarjmaan** is a comprehensive translation platform that translates English text and audio to Moroccan Darija (الدارجة المغربية) using Google's Gemini AI. The project includes a Spring Boot backend, React web application, and Chrome extension for seamless translation across different contexts.
 
 ## 🎯 Features
 
@@ -23,6 +23,11 @@
 - **Authentication**: JWT-based secure authentication
 - **Registration**: User registration and login system
 - **Protected Routes**: Secure access to translation features
+
+### Browser Integration
+- **Chrome Extension**: Translate text directly in web pages
+- **Side Panel**: Convenient access to translation features
+- **Content Script**: Highlight and translate selected text
 
 ### Technical Features
 - **RESTful API**: Clean API endpoints for translation services
@@ -86,12 +91,24 @@ React-client/darija-translator/
 └── public/
 ```
 
+### Chrome Extension
+```
+chrome-extension/
+├── manifest.json           # Extension configuration
+├── background.js           # Background service worker
+├── content-script.js       # Injects into web pages
+├── sidepanel.html          # Side panel interface
+├── sidepanel.js            # Side panel logic
+└── icons/                  # Extension icons
+```
+
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Java 17+
 - Node.js 16+
 - Google Gemini API Key
+- Chrome Browser (for extension)
 
 ### Installation
 
@@ -117,6 +134,17 @@ npm install
 
 # Start development server
 npm start
+```
+
+#### 3. Chrome Extension Setup
+```bash
+# Navigate to extension directory
+cd chrome-extension
+
+# Load extension in Chrome:
+# 1. Open Chrome and go to chrome://extensions/
+# 2. Enable "Developer mode"
+# 3. Click "Load unpacked" and select the chrome-extension folder
 ```
 
 #### 3. Configuration
@@ -154,6 +182,8 @@ cd darijaa-translator
 # In another terminal, start frontend
 cd React-client/darija-translator
 npm start
+
+# Extension is loaded in Chrome as described above
 ```
 
 #### Production Build
@@ -256,16 +286,6 @@ Content-Type: multipart/form-data
 file: [audio file]
 ```
 
-## 🎨 Screenshots
-
-### Chat Interface
-![Chat Interface](https://via.placeholder.com/800x450/4a90e2/ffffff?text=Chat+Interface)
-
-### Audio Recording
-![Audio Recording](https://via.placeholder.com/800x450/7ed321/ffffff?text=Audio+Recording)
-
-### Translation Results
-![Translation Results](https://via.placeholder.com/800x450/f5a623/ffffff?text=Translation+Results)
 
 ## 🔧 Technologies Used
 
@@ -284,6 +304,11 @@ file: [audio file]
 - **CSS3** - Styling with animations
 - **Web Audio API** - Audio recording functionality
 
+### Browser Extension
+- **Chrome Extension API** - Browser integration
+- **Manifest V3** - Extension configuration
+- **Content Scripts** - Web page interaction
+
 ### Development Tools
 - **Maven** - Java dependency management
 - **npm** - JavaScript dependency management
@@ -296,6 +321,7 @@ file: [audio file]
 Transaltor/
 ├── README.md                    # This file
 ├── ARCHITECTURE.md             # Detailed architecture documentation
+├── AUTHENTICATION_README.md    # Authentication documentation
 ├── darijaa-translator/         # Spring Boot backend
 │   ├── pom.xml                 # Maven configuration
 │   ├── src/main/java/          # Java source code
@@ -306,6 +332,13 @@ Transaltor/
 │       ├── package.json        # npm dependencies
 │       ├── src/                # React source code
 │       └── public/             # Static assets
+├── chrome-extension/           # Chrome browser extension
+│   ├── manifest.json           # Extension manifest
+│   ├── background.js           # Background script
+│   ├── content-script.js       # Content script
+│   ├── sidepanel.html          # Side panel HTML
+│   ├── sidepanel.js            # Side panel script
+│   └── icons/                  # Extension icons
 └── docs/                       # Documentation (future)
 ```
 
@@ -326,18 +359,6 @@ We welcome contributions! Please follow these steps:
 - Update documentation for API changes
 - Ensure all tests pass before submitting PR
 
-## 📋 TODO List
-
-- [ ] Add unit tests for backend services
-- [ ] Implement frontend unit tests with Jest
-- [ ] Add integration tests for API endpoints
-- [ ] Implement rate limiting for API calls
-- [ ] Add support for additional audio formats
-- [ ] Implement translation history feature
-- [ ] Add user preferences and settings
-- [ ] Implement caching for translation results
-- [ ] Add admin dashboard for user management
-- [ ] Implement real-time translation with WebSockets
 
 ## 🐛 Bug Reports
 
@@ -374,11 +395,6 @@ For questions, suggestions, or collaboration opportunities:
 - **Email**: [your.email@example.com]
 - **Project Link**: [https://github.com/yourusername/tarjmaan](https://github.com/yourusername/tarjmaan)
 
-## 🎥 Video Demo
-
-[**Watch the Loom video demo here**](#)
-
-*Note: The Loom video link will be added here by the project maintainer to provide a comprehensive walkthrough of the application features and functionality.*
 
 ---
 
