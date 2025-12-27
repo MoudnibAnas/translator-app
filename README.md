@@ -387,15 +387,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **React Community** - For the excellent frontend ecosystem
 - **Moroccan Language Community** - For preserving and promoting Darija
 
-## 📞 Contact
-
-For questions, suggestions, or collaboration opportunities:
-
-- **Project Maintainer**: [Your Name]
-- **Email**: [your.email@example.com]
-- **Project Link**: [https://github.com/yourusername/tarjmaan](https://github.com/yourusername/tarjmaan)
-
-
----
-
 **Made with ❤️ for the Moroccan community**
