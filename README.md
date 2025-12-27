@@ -1,7 +1,11 @@
 # Tarjmaan - Moroccan Darija Translator
 
 
-**Tarjmaan** is a comprehensive translation platform that translates English text and audio to Moroccan Darija (الدارجة المغربية) using Google's Gemini AI. The project includes a Spring Boot backend, React web application, and Chrome extension for seamless translation across different contexts.
+**Tarjmaan** is a comprehensive translation platform that translates English text and audio to Moroccan Darija (الدارجة المغربية) using Google's Gemini AI. The 
+project includes a Spring Boot backend, React web application, and Chrome extension for seamless translation across different contexts.
+
+## 🎥 Tarjmaan Architecture Diagram
+[**View the image here**](https://ibb.co/mrZfMWJV)
 
 ## 🎥 Video Demo
 [**Watch My Loom video demo here**](#)
