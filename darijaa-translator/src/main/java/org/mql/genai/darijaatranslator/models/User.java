@@ -1,11 +1,15 @@
 package org.mql.genai.darijaatranslator.models;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,75 +24,58 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    // Ajoutez un champ rôle si vous n'en avez pas
+    @Column(nullable = false)
+    private String role = "ROLE_USER";
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    // Constructors
-    public User() {
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
+    // Constructeurs
+    public User() {}
 
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
     }
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
+    // Getters et Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
+
+    // Méthodes UserDetails
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singletonList(new SimpleGrantedAuthority(role));
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public String getUsername() {
-        return username;
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-        this.updatedAt = LocalDateTime.now();
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-        this.updatedAt = LocalDateTime.now();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-        this.updatedAt = LocalDateTime.now();
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
