@@ -8,7 +8,7 @@ project includes a Spring Boot backend, React web application, and Chrome extens
 [**View the image here**](https://ibb.co/mrZfMWJV)
 
 ## 🎥 Video Demo
-[**Watch My Loom video demo here**](#https://www.loom.com/share/f68caacc7c324b12806be6e1e7a4f89f)
+[**Watch My Loom video demo here**](https://www.loom.com/share/f68caacc7c324b12806be6e1e7a4f89f)
 
 ## 🎯 Features
 
